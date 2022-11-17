@@ -14,7 +14,7 @@ class QAgent():
         rewards_new = np.copy(self.rewards)
 
         # Set goal to be very high reward
-        rewards_new[end_state] = 999
+        rewards_new[end_state] = 1000
 
         return rewards_new
 
