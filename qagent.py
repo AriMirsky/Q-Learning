@@ -1,6 +1,7 @@
 import numpy as np
 #from HardToWriteFunctions import getPlayableActions, getStateMatrix
-from exampleqagent import getPlayableActions, getStateMatrix
+#from exampleqagent import getPlayableActions, getStateMatrix
+from biggerexampleqagent import getPlayableActions, getStateMatrix
 
 
 class QAgent():
@@ -25,6 +26,11 @@ class QAgent():
                 continue
             playable_actions = getPlayableActions(
                 current_state, self.differentials, self.dt)
+            print("a", current_state)
+            print("b", playable_actions)
+            print("c", self.q[current_state])
+            print("d", self.q[playable_actions])  # Bug is here
+            print("e", np.amax(self.q[playable_actions]))
             temporal_difference = rewards_new[current_state] + self.gamma * \
                 np.amax(self.q[playable_actions]) - \
                 self.q[current_state]
